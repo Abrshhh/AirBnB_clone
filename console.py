@@ -9,7 +9,7 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb)"
 
-    def create(self, instance):
+    def do_create(self, instance):
         """This command creates a new instance to BaseModel\
             saves it to json file and prints its id."""
 
