@@ -2,7 +2,8 @@
 
 import cmd
 import json
-from base_model import BaseModel
+from models.base_model import BaseModel
+import uuid
 
 
 class HBNBCommand(cmd.Cmd):
@@ -16,10 +17,14 @@ class HBNBCommand(cmd.Cmd):
         instance = BaseModel()
         dict_instance = instance.__dict__
 
+        if instance.__class__.__name__ != "BaseModel":
+            print("** class doesn't exist **")
+        if instance.__class__.__name__ is None:
+            print("** class name missing **")
+        print(dict_instance.id)
+
         with open("file.json", 'w') as f:
             json.dump(dict_instance, f)
-
-        print(dict_instance.id)
 
     def do_quit(self, arg):
         '''This command quits the program.'''
